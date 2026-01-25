@@ -1,35 +1,45 @@
-import {Badge, Avatar} from "@nextui-org/react";
-import { useEffect } from "react";
+import { Button } from '@nextui-org/button'
+import { Input } from '@nextui-org/input'
+import { useState } from 'react'
+import { ShowSearch } from './js_class/show_search'
+
+
 function App() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const showSearch = new ShowSearch()
+  const BuscarSonidos = async (e) => {
+    e.preventDefault()
 
- 
-  // Usamos el puente de Electron para llamar a la funcion que creamos arriba
-
-    const BuscarSonidos = async () => {
-      try {
-      
-        const resultados = await window.electron.ipcRenderer.invoke('search-sounds', 'helltaker');
-        console.log("Resultados encontrados:", resultados);
-      } catch (error) {
-        console.error("Error buscando sonidos:", error);
-      }
+    if (!searchTerm.trim()) return
+    try {
+      const resultados = await window.electron.ipcRenderer.invoke('search-sounds', searchTerm)
+      console.log('Resultados encontrados:', resultados)
+      showSearch.getSearchTerm(resultados)
+    } catch (error) {
+      console.error('Error buscando sonidos:', error)
     }
-
-    useEffect(() => {
-      console.log("Objeto window.electron:", window.electron);
-      BuscarSonidos()
-    }, [])
-
-    return (
-      <>
-        <p className="text-3xl font-bold underline text-gray-900">Hello World</p>
-        <Badge color="primary" content="5">
-          <Avatar radius="md" size="lg" src="" />
-        </Badge>
-        
-      </>
-    )
   }
 
+  return (
+    <>
+      <form onSubmit={BuscarSonidos} className="flex flex-col gap-4 p-4">
+        <div className="sticky top-0 bg-content1 z-10 flex flex-row gap-2 border-2 border-gray-300 rounded-md">
+        <Input
+          clearable
+          bordered
+          label="Buscar Sonidos"
+          placeholder="Escribe el nombre del sonido"
+          value={searchTerm}
+          required
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <Button type="submit" className="h-auto">Buscar</Button>
+        </div>
+      </form>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 w-full" id="results-container">Escribe en la barra de busqueda para buscar sonidos</div>
+    </>
+  )
+}
 
 export default App

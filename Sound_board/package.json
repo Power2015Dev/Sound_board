@@ -1,9 +1,10 @@
 {
   "name": "sound-board",
+  "productName": "Sound Board",
   "version": "1.0.0",
-  "description": "An Electron application with React",
+  "description": "Sound board application built with Electron, Vite, and React. scrapping sounds from Myinstants.com",
   "main": "./out/main/index.js",
-  "author": "example.com",
+  "author": "Power2015",
   "homepage": "https://electron-vite.org",
   "scripts": {
     "format": "prettier --write .",
@@ -21,8 +22,11 @@
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
     "@nextui-org/react": "^2.6.11",
+    "axios": "^1.13.3",
+    "cheerio": "^1.2.0",
     "electron-updater": "^6.3.9",
-    "framer-motion": "^12.27.1"
+    "framer-motion": "^12.27.1",
+    "lucide-react": "^0.563.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.1.0",

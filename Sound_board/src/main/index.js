@@ -10,7 +10,7 @@ function createWindow() {
     height: 670,
     show: false,
     autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
+    icon: icon,
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
@@ -60,6 +60,15 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
+
+ipcMain.handle('download-audio', (event, url) => {
+    const win = BrowserWindow.getFocusedWindow();
+    if (win) {
+      // Esta función nativa de Electron descarga el archivo 
+      // y gestiona el guardado automáticamente (sin CORS)
+      win.webContents.downloadURL(url); 
+    }
+  });
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
