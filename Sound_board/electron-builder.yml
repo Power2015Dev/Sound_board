@@ -1,7 +1,8 @@
-appId: com.electron.app
-productName: sound-board
+appId: com.power2015.soundboard
+productName: Sound Board
 directories:
   buildResources: build
+  output: dist
 files:
   - '!**/.vscode/*'
   - '!src/*'
@@ -10,33 +11,40 @@ files:
   - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
 asarUnpack:
   - resources/**
+# Windows: instalador (NSIS) y version portable de 64 bits
 win:
   executableName: sound-board
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
 nsis:
-  artifactName: ${name}-${version}-setup.${ext}
+  artifactName: Sound-Board-${version}-Setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+portable:
+  artifactName: Sound-Board-${version}-Portable.${ext}
 mac:
   entitlementsInherit: build/entitlements.mac.plist
-  extendInfo:
-    - NSCameraUsageDescription: Application requests access to the device's camera.
-    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
-    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
-    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
   notarize: false
 dmg:
-  artifactName: ${name}-${version}.${ext}
+  artifactName: Sound-Board-${version}.${ext}
 linux:
   target:
     - AppImage
-    - snap
     - deb
-  maintainer: electronjs.org
-  category: Utility
+  maintainer: Power2015
+  category: Audio
 appImage:
-  artifactName: ${name}-${version}.${ext}
+  artifactName: Sound-Board-${version}.${ext}
 npmRebuild: false
+# Publicacion en GitHub Releases
 publish:
-  provider: generic
-  url: https://example.com/auto-updates
+  provider: github
+  owner: Power2015Dev
+  repo: Sound_board

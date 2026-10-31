@@ -1,4 +1,4 @@
-import { CustomAudioPlayer } from '../components/audioplayer'
+import { CustomAudioPlayer } from '../components/Audioplayer'
 import { createRoot } from 'react-dom/client'
 export class ShowSearch {
   constructor() {

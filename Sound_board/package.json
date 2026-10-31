@@ -2,10 +2,10 @@
   "name": "sound-board",
   "productName": "Sound Board",
   "version": "1.0.0",
-  "description": "Sound board application built with Electron, Vite, and React. scrapping sounds from Myinstants.com",
+  "description": "Buscador y reproductor de sonidos de MyInstants para escritorio, hecho con Electron, React y Tailwind.",
   "main": "./out/main/index.js",
   "author": "Power2015",
-  "homepage": "https://electron-vite.org",
+  "homepage": "https://github.com/Power2015Dev/Sound_board",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",
@@ -14,9 +14,10 @@
     "build": "electron-vite build",
     "postinstall": "electron-builder install-app-deps",
     "build:unpack": "npm run build && electron-builder --dir",
-    "build:win": "npm run build && electron-builder --win",
+    "build:win": "npm run build && electron-builder --win --publish never",
     "build:mac": "npm run build && electron-builder --mac",
-    "build:linux": "npm run build && electron-builder --linux"
+    "build:linux": "npm run build && electron-builder --linux",
+    "release:win": "npm run build && electron-builder --win --publish always"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
@@ -46,5 +47,10 @@
     "react-dom": "^19.2.1",
     "tailwindcss": "^3.4.17",
     "vite": "^7.2.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Power2015Dev/Sound_board.git"
+  },
+  "license": "MIT"
 }
