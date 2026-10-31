@@ -10,10 +10,11 @@ Search for any sound, listen to it instantly, and download it as an MP3.
 [![Download](https://img.shields.io/github/v/release/Power2015Dev/Sound_board?label=Download&style=for-the-badge)](https://github.com/Power2015Dev/Sound_board/releases/tag/1.0.0)
 ![Platform](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![License](https://img.shields.io/github/license/Power2015Dev/Sound_board?style=for-the-badge)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20me-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/power2015#)
 
 ![Sound Board screenshot](doc/cap.png)
 
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20me-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/power2015#)
+
 
 </div>
 
