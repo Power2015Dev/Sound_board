@@ -13,6 +13,8 @@ Search for any sound, listen to it instantly, and download it as an MP3.
 
 ![Sound Board screenshot](doc/cap.png)
 
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20me-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/power2015#)
+
 </div>
 
 ## Features
